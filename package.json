@@ -1,0 +1,36 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "bin": {
+    "app": "bin/app.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "lint": "tslint -p .",
+    "test": "jest",
+    "cdk": "cdk"
+  },
+  "author": {
+    "name": "Amazon Web Services",
+    "url": "https://aws.amazon.com",
+    "organization": true
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@aws-cdk/assert": "^1.13.1",
+    "@types/jest": "^24.0.18",
+    "aws-cdk": "^1.13.1",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.1.0",
+    "tslint": "^5.20.0",
+    "typescript": "~3.6.2"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-cloudformation": "^1.13.1",
+    "@aws-cdk/aws-lambda": "^1.13.1",
+    "@aws-cdk/aws-s3": "^1.13.1",
+    "@aws-cdk/core": "^1.13.1"
+  }
+}
