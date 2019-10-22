@@ -1,0 +1,17 @@
+{
+  "name": "personalize-example",
+  "version": "1.0.0",
+  "bin": {
+    "app": "bin/app.js"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-iam": "1.14.0",
+    "@aws-cdk/aws-kms": "1.14.0",
+    "@aws-cdk/aws-lambda-event-sources": "1.14.0",
+    "@aws-cdk/aws-lambda": "1.14.0",
+    "@aws-cdk/aws-personalize": "1.14.0",
+    "@aws-cdk/aws-nodejs-layer": "1.14.0",
+    "@aws-cdk/aws-s3": "1.14.0",
+    "@aws-cdk/core": "1.14.0"
+  }
+}

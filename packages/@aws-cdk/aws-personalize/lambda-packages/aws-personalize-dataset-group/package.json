@@ -1,0 +1,11 @@
+{
+  "name": "aws-personalize-dataset-group",
+  "private": true,
+  "description": "AWS Personalize dataset-group Custom resource",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "dependencies": {
+    "aws-sdk": "^2.550.0",
+    "cfn-lambda": "^4.0.0"
+  }
+}

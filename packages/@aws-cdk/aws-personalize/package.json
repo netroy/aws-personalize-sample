@@ -1,0 +1,52 @@
+{
+  "name": "@aws-cdk/aws-personalize",
+  "version": "1.14.0",
+  "description": "The CDK Construct Library for AWS::Personalize",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "cdk-build",
+    "watch": "cdk-watch",
+    "lint": "cdk-lint",
+    "test": "cdk-test",
+    "integ": "cdk-integ",
+    "pkglint": "pkglint -f",
+    "package": "cdk-package",
+    "awslint": "cdk-awslint",
+    "cfn2ts": "cfn2ts",
+    "build+test+package": "npm run build+test && npm run package",
+    "build+test": "npm run build && npm test"
+  },
+  "homepage": "https://github.com/aws/aws-cdk",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-cdk.git",
+    "directory": "packages/@aws-cdk/aws-personalize"
+  },
+  "author": {
+    "name": "Amazon Web Services",
+    "url": "https://aws.amazon.com",
+    "organization": true
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "aws",
+    "cdk",
+    "constructs",
+    "personalize"
+  ],
+  "devDependencies": {
+    "@aws-cdk/assert": "1.14.0"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-cloudformation": "1.14.0",
+    "@aws-cdk/aws-iam": "1.14.0",
+    "@aws-cdk/aws-lambda": "1.14.0",
+    "@aws-cdk/aws-nodejs-layer": "1.14.0",
+    "@aws-cdk/core": "1.14.0"
+  },
+  "engines": {
+    "node": ">= 10.3.0"
+  },
+  "stability": "experimental"
+}

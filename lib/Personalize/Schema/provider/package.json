@@ -1,9 +1,0 @@
-{
-  "name": "schema-provider",
-  "version": "1.0.0",
-  "main": "index.js",
-  "dependencies": {
-    "aws-sdk": "^2.550.0",
-    "cfn-lambda": "^4.0.0"
-  }
-}

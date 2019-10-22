@@ -1,0 +1,15 @@
+{
+  "name": "@aws-cdk/aws-nodejs-layer",
+  "version": "1.14.0",
+  "description": "The CDK Construct Library Nodejs layers for Lambda functions",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "dependencies": {
+    "@aws-cdk/aws-lambda": "1.14.0",
+    "@aws-cdk/core": "1.14.0"
+  },
+  "engines": {
+    "node": ">= 10.3.0"
+  },
+  "stability": "experimental"
+}

@@ -1,21 +1,7 @@
 {
-  "name": "app",
+  "name": "aws-cdk",
   "version": "0.1.0",
-  "bin": {
-    "app": "bin/app.js"
-  },
-  "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
-    "lint": "tslint -p .",
-    "test": "jest",
-    "cdk": "cdk"
-  },
-  "author": {
-    "name": "Amazon Web Services",
-    "url": "https://aws.amazon.com",
-    "organization": true
-  },
+  "private": true,
   "license": "Apache-2.0",
   "devDependencies": {
     "@aws-cdk/assert": "^1.14.0",
@@ -23,19 +9,15 @@
     "@types/node": "^12.11.2",
     "aws-cdk": "^1.14.0",
     "jest": "^24.9.0",
+    "lerna": "^3.16.4",
     "nock": "^11.5.0",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.1.0",
     "tslint": "^5.20.0",
     "typescript": "~3.6.2"
   },
-  "dependencies": {
-    "@aws-cdk/aws-cloudformation": "^1.14.0",
-    "@aws-cdk/aws-iam": "^1.14.0",
-    "@aws-cdk/aws-kms": "^1.14.0",
-    "@aws-cdk/aws-lambda": "^1.14.0",
-    "@aws-cdk/aws-lambda-event-sources": "^1.14.0",
-    "@aws-cdk/aws-s3": "^1.14.0",
-    "@aws-cdk/core": "^1.14.0"
-  }
+  "workspaces": [
+    "packages/*",
+    "packages/@aws-cdk/*"
+  ]
 }

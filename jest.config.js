@@ -2,7 +2,7 @@ module.exports = {
   roots: ['<rootDir>'],
   testMatch: [
     '**/*.test.ts',
-    '**/provider/*.test.js'
+    '**/lambda-packages/*.test.js'
   ],
   transform: {
     '^.+\\.ts$': 'ts-jest'
