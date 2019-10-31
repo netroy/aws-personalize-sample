@@ -100,6 +100,9 @@ const BaseInteractionsSchema = new AvroSchema('Interactions', [{
 }, {
   name: 'TIMESTAMP',
   type: 'long'
+}, {
+  name: 'EVENT_TYPE',
+  type: 'string'
 }]);
 
 export class InteractionsSchema extends Schema {

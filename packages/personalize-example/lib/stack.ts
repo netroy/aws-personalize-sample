@@ -3,7 +3,7 @@ import { Construct, Stack, StackProps, RemovalPolicy } from '@aws-cdk/core';
 import { PolicyStatement, ServicePrincipal, Role, ManagedPolicy } from '@aws-cdk/aws-iam';
 import { Function, Runtime, Code } from '@aws-cdk/aws-lambda';
 import { S3EventSource } from '@aws-cdk/aws-lambda-event-sources';
-import { Key } from '@aws-cdk/aws-kms';
+// import { Key } from '@aws-cdk/aws-kms';
 import { Dataset, DatasetGroup, InteractionsSchema, ItemsSchema, UsersSchema } from '@aws-cdk/aws-personalize';
 import { resolve } from 'path';
 
@@ -11,13 +11,13 @@ export class AppStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    const encryptionKey = new Key(this, 'EncryptionKey', {
-      removalPolicy: RemovalPolicy.DESTROY,
-    });
+    // const encryptionKey = new Key(this, 'EncryptionKey', {
+    //   removalPolicy: RemovalPolicy.DESTROY,
+    // });
 
     const dataBucket = new Bucket(this, 'DataBucket', {
-      versioned: true,
-      encryptionKey,
+      // versioned: true,
+      // encryptionKey,
       removalPolicy: RemovalPolicy.DESTROY,
     });
     dataBucket.addToResourcePolicy(new PolicyStatement({
@@ -41,7 +41,6 @@ export class AppStack extends Stack {
       schema: new UsersSchema(this, 'UsersSchema', [
         { name: 'AGE', type: 'int' },
         { name: 'GENDER', type: 'string' },
-        { name: 'CITY', type: 'string' }
       ]),
       datasetType: 'USERS'
     });
@@ -49,14 +48,20 @@ export class AppStack extends Stack {
     const itemDataset = new Dataset(this, 'Items', {
       datasetGroup,
       schema: new ItemsSchema(this, 'ItemsSchema', [
-        { name: 'GENRE', type: 'string' },
+        { name: 'REGULAR_PRICE', type: 'float' },
+        { name: 'WINE_ALCOHOL_CONCENTRATION', type: 'int'},
+        { name: 'WINE_QUALITY', type: 'int' },
+        { name: 'WINE_YEAR', type: 'int' },
+        { name: 'CUSTOMER_RATING', type: 'float'}
       ]),
       datasetType: 'ITEMS'
     });
 
     const interactionDataset = new Dataset(this, 'Interactions', {
       datasetGroup,
-      schema: new InteractionsSchema(this, 'InteractionsSchema'),
+      schema: new InteractionsSchema(this, 'InteractionsSchema', [
+        { name: 'EVENT_VALUE', type: 'float' }
+      ]),
       datasetType: 'INTERACTIONS'
     });
 
@@ -69,12 +74,12 @@ export class AppStack extends Stack {
       ]
     });
 
-    DataImportJobRole.addToPolicy(new PolicyStatement({
-      actions: ['kms:Decrypt'],
-      resources: [ encryptionKey.keyArn ]
-    }));
+    // DataImportJobRole.addToPolicy(new PolicyStatement({
+    //   actions: ['kms:Decrypt'],
+    //   resources: [ encryptionKey.keyArn ]
+    // }));
 
-    encryptionKey.grantEncrypt(DataImportJobRole);
+    // encryptionKey.grantEncrypt(DataImportJobRole);
 
     const autoImporter = new Function(this, 'DataImporter', {
       handler: 'index.handler',
